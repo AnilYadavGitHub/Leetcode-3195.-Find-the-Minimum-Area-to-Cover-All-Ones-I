@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minimumArea(vector<vector<int>>& grid) {
+        
+        int a , b , c , d;
+
+        a = c = INT_MIN;
+        b = d = INT_MAX;
+
+
+        for(int i = 0 ; i < grid.size() ; i++){
+
+            for(int j = 0 ; j < grid[0].size(); j++){
+                if(grid[i][j] == 1){
+                    a = max(a , i);
+                    b = min(b , i);
+                    c = max(c , j);
+                    d = min(d , j);
+                }
+            }
+        }
+        return (a - b + 1)* (c - d + 1);
+    }
+};
